@@ -31,18 +31,15 @@ router.post('/socket', function (req, res, next) {
         sys.puts(stdout)
     }
 
-    // Repeat command 10 times, sometime 'sendElro' are not accurate
-    for (var i = 0; i < 10; i++) {
-        exec(command, function (error, stdout, stderr) {
-            if (!error) {
-                // Things gone well
-                console.log(req.body.device + " is no an state " + req.body.command);
-            } else {
-                // things failed :(
-                console.log(req.body.device + " failed to set on state  " + req.body.command);
-            }
-        });
-    }
+    exec(command, function (error, stdout, stderr) {
+        if (!error) {
+            // Things gone well
+            console.log(req.body.device + " is no an state " + req.body.command);
+        } else {
+            // things failed :(
+            console.log(req.body.device + " failed to set on state  " + req.body.command);
+        }
+    });
 
     res.end();
 });
