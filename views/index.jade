@@ -1,0 +1,11 @@
+extend layout
+block content
+    h5 Steckdosen
+    ul.collection
+        each deviceName, index in devices
+            li.collection-item.avatar
+                span.title #{deviceName.name}
+                p
+                    a(data-device=index).waves-effect.waves-light.btn.js-device-on An
+                    &nbsp;
+                    a(data-device=index).waves-effect.waves-light.btn.js-device-off Aus
