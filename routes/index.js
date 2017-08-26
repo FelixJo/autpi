@@ -8,13 +8,13 @@ var devices = {
         name: 'Küchenradio',
         cmd: '433send -u 0 -i 13938970'
     },
+    'tv-living': {
+        name: 'TV Wohnzimmer',
+        cmd: '433send -u 2 -i 13938970'
+    },
     'tv-bedroom': {
         name: 'TV Schlafzimmer',
         cmd: '433send -u 1 -i 13938970'
-    },
-    'plattenspieler': {
-        name: 'Plattenspieler',
-        cmd: '433sendElro -u 1 -i 0'
     },
     'wlan' : {
         name: 'Garten-WLAN',
@@ -61,13 +61,13 @@ router.get('/stream', function (req, res, next) {
 
 
 router.get('/stream-start', function (req, res, next) {
-    commandHelper('webcam-stream-start');
+    commandHelper('webcam start');
 
     res.end();
 });
 
 router.get('/stream-stop', function (req, res, next) {
-    commandHelper('webcam-stream-stop');
+    commandHelper('webcam stop');
 
     res.end();
 });
